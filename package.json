@@ -4,14 +4,25 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon index.js"
+    "clean": "rm -rf build",
+    "start": "nodemon --exec babel-node src/rizwan.js",
+    "build": "npm run clean && babel src -d build"
   },
   "author": "",
   "license": "ISC",
   "dependencies": {
     "apollo-server": "^2.19.1",
     "graphql": "^15.4.0",
-    "nodemon": "^2.0.6"
+    "nodemon": "^2.0.6",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.12.11",
+    "@babel/preset-flow": "^7.12.1",
+    "@babel/preset-react": "^7.12.10"
   }
 }
