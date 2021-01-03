@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "clean": "rm -rf build",
-    "start": "nodemon --exec babel-node src/rizwan.js",
+    "start": "nodemon --exec babel-node src/index.js",
     "build": "npm run clean && babel src -d build"
   },
   "author": "",
@@ -18,11 +18,11 @@
     "react-dom": "^17.0.1"
   },
   "devDependencies": {
+    "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-env": "^7.12.11",
-    "@babel/preset-flow": "^7.12.1",
-    "@babel/preset-react": "^7.12.10"
+    "@babel/preset-flow": "^7.12.1"
   }
 }

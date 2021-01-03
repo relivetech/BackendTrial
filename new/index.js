@@ -118,9 +118,5 @@ const server = new ApolloServer({ typeDefs, resolvers });
 server.listen().then(({ url }) => {
   console.log(`Server ready at ${url}`);
 });
-class Hello {
-  static world() {
-    console.log("Hello, World!");
-  }
-}
+
 Hello.world();
