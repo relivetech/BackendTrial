@@ -1,7 +1,30 @@
 import "@babel/polyfill";
 
+const mongoose = require('mongoose');
+
 const { ApolloServer, gql, ApolloError } = require("apollo-server");
 
+mongoose.connect('mongodb+srv://shivi:mongodb@cluster0.lz0pn.mongodb.net/Wb', {useNewUrlParser: true, useUnifiedTopology: true });
+
+
+const db = mongoose.connection;
+db.on('error', console.error.bind(console, 'connection error:'));
+db.once('open', function() {
+console.log("we r connected to mongodb")
+});
+
+
+
+
+const waterBotleSchema = new mongoose.Schema({
+  name: String,
+  price:Number,
+  description:String
+});
+
+const bottles = mongoose.model('bottles1', waterBotleSchema);
+const Model=new bottles({name:"bfjvfj",price:2,description:"jijjjb"})
+Model.save()
 const typeDefs = gql`
   type waterBottle {
     ID: String
