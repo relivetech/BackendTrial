@@ -23,8 +23,9 @@ const waterBotleSchema = new mongoose.Schema({
 });
 
 const bottles = mongoose.model('bottles1', waterBotleSchema);
-const Model=new bottles({name:"bfjvfj",price:2,description:"jijjjb"})
-Model.save()
+// const Model=new bottles({name:"bfjvfj",price:2,description:"jijjjb"})
+// new Model.save()
+
 const typeDefs = gql`
   type waterBottle {
     ID: String
@@ -107,7 +108,8 @@ const resolvers = {
       const { name, description, price } = args;
 
       var payload = [...data, { ID: Math.random(), name, description, price }];
-
+           const s=new bottles( { name, description, price } ).save()
+            
       return { payload, message: "success", status: 200 };
     },
 
@@ -144,9 +146,4 @@ const server = new ApolloServer({ typeDefs, resolvers });
 server.listen().then(({ url }) => {
   console.log(`Server ready at ${url}`);
 });
-class Hello {
-  static world() {
-    console.log("Hello, World!");
-  }
-}
-Hello.world();
+
