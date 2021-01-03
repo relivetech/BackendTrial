@@ -9,6 +9,7 @@ const typeDefs = gql`
     description: String
     price: Int
   }
+  
   type Query {
     waterBottle(bottleId: ID!): Output
     waterBottles: BottlesOutput
@@ -80,7 +81,7 @@ const resolvers = {
       const { name, description, price } = args;
 
       var payload = [...data, { ID: Math.random(), name, description, price }];
-
+//query
       return { payload, message: "success", status: 200 };
     },
 
